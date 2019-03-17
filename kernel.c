@@ -16,6 +16,4 @@ void kmain()
 	//Code Here
 	
 	print("OK!", 15, 0);
-
-	shutdown();
 }

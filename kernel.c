@@ -13,7 +13,9 @@ void kmain()
 
 	print("AuroraOS is starting...", 2, 1);
 
+	//System Initialization
+
+	print("OK!", 15, 1);
+
 	//Code Here
-	
-	print("OK!", 15, 0);
 }

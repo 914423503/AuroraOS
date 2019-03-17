@@ -12,7 +12,7 @@ Contents: Kernel Header
 //Include
 #include "./types.h"
 
-uint16 TERMINAL_BUFFER;
+uint16* TERMINAL_BUFFER;
 
 uint8 inportb (uint16 _port)
 {

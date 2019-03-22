@@ -17,6 +17,8 @@ void kmain()
 
 	print("OK!", 15, 1);
 
+	clear();
+
 	//Code Here
 	print(": ", 15, 0);
 }

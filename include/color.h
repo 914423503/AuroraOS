@@ -127,16 +127,6 @@ void clearLine(uint8 from, uint8 to) //Clear a line from an address
         }
 }
 
-void clear() //Clear screen
-{
-	memsetw(VGA_ADDRESS, PAINT(0x20, WHITE_COLOR), width * height / 2);
-	cursorX = 0;
-	cursorY = 0;
-	updateCursor();
-
-	print(" ", 15, 0);
-}
-
 void print(string str, uint8 color, uint8 newLine) //Print a string
 {
   	int i = 0;
@@ -172,6 +162,16 @@ void print(string str, uint8 color, uint8 newLine) //Print a string
 	}
 
 	updateCursor();
+}
+
+void clear() //Clear screen
+{
+	memsetw(VGA_ADDRESS, PAINT(0x20, WHITE_COLOR), width * height / 2);
+	cursorX = 0;
+	cursorY = 0;
+	updateCursor();
+
+	print("", 15, 0);
 }
 
 #endif

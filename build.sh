@@ -9,6 +9,7 @@ grub-file --is-x86-multiboot tmp/Aurora.bin
 mkdir -p isodir/boot/grub
 cp tmp/Aurora.bin isodir/boot/Aurora.bin
 cp grub.cfg isodir/boot/grub/grub.cfg
-grub-mkrescue -o output/Aurora.iso isodir
+grub-mkrescue /usr/lib/grub/i386-pc -o output/Aurora.iso isodir
 
 qemu-system-x86_64 -cdrom output/Aurora.iso
+

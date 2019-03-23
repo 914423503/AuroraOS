@@ -24,8 +24,6 @@ void reboot() //Reboot system
 
 void shutdown() //Shutdowh system
 {
-	__asm__ __volatile__ ("cli");
-	__asm__ __volatile__ ("hlt"); //HLT cpu
 }
 
 #endif

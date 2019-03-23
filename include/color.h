@@ -33,7 +33,6 @@ Contents: Basic GPU Driver
 //Include
 #include "./kernel.h"
 #include "./string.h"
-#include "./keyboard.h"
 
 unsigned int VGA_INDEX;
 

@@ -26,11 +26,4 @@ void outportb (uint16 _port, uint8 _data)
 	__asm__ __volatile__ ("outb %1, %0" : : "dN" (_port), "a" (_data));
 }
 
-uint16 *memsetw(uint16 *dest, uint16 val, uint32 count) //Mem set by 32bit word
-{
-    uint16 *temp = (uint16 *)dest;
-    for(; count != 0; count--) *temp++ = val;
-    return dest;
-}
-
 #endif

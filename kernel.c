@@ -21,6 +21,4 @@ void kmain()
 
 	//Code Here
 	print(": ", 15, 0);
-
-    shutdown();
 }

@@ -9,7 +9,7 @@ Contents: String Functionss
 //Include
 #include "./variables.h"
 
-uint16 Lengh(string str) //Get string lenght
+uint16 Lenght(string str) //Get string lenght
 {
 	uint16 i = 1;
     while(str[i])
@@ -18,17 +18,12 @@ uint16 Lengh(string str) //Get string lenght
     return i;
 }
 
-string intConvStr(char* b, uint32 i) //From a int get char
+string intConvStr(string b, uint16 i) //From a int get char
 {
     char const digit[] = "0123456789";
-    char* p = b;
+    string p = b;
 
-    if(i<0){
-        *p++ = '-';
-        i *= -1;
-    }
-
-    uint32 shifter = i;
+    uint16 shifter = i;
     do{
         ++p;
         shifter = shifter/10;

@@ -19,7 +19,7 @@ void kmain()
 	print("OK!", 15, 1);
 
     print("Lenght of 'Hello': ", 15, 1);
-    print(intConvStr("Hello", Lengh("Hello")), 15, 1);
+    print(intConvStr((string)' ', Lenght("Hello")), 15, 0);
 
     //Code Here
 }

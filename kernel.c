@@ -18,10 +18,8 @@ void kmain()
 
 	print("OK!", 15, 1);
 
-    Sleep(9999999);
+    print("Lenght of 'Hello': ", 15, 1);
+    print(intConvStr("Hello", Lengh("Hello")), 15, 1);
 
-	clear();
-
-	//Code Here
-	print(": ", 15, 0);
+    //Code Here
 }

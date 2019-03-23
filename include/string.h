@@ -18,7 +18,7 @@ uint16 Lengh(string str) //Get string lenght
     return i;
 }
 
-string intConvStr(char* b, uint32 i)
+string intConvStr(char* b, uint32 i) //From a int get char
 {
     char const digit[] = "0123456789";
     char* p = b;

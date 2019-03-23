@@ -6,6 +6,7 @@ Contents: Kernel Main
 #include "./include/kernel.h"
 #include "./include/color.h"
 #include "./include/acpi.h"
+#include "./include/time.h"
 
 void kmain()
 {
@@ -16,6 +17,8 @@ void kmain()
 	//System Initialization
 
 	print("OK!", 15, 1);
+
+    Sleep(9999999);
 
 	clear();
 

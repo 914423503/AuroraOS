@@ -165,7 +165,7 @@ void print(string str, uint8 color, uint8 newLine) //Print a string
 
 void clear() //Clear screen
 {
-	memsetw(VGA_ADDRESS, PAINT(0x20, WHITE_COLOR), width * height / 2);
+	memsetw((uint16*)VGA_ADDRESS, PAINT(0x20, WHITE_COLOR), width * height / 2);
 	cursorX = 0;
 	cursorY = 0;
 	updateCursor();

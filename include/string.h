@@ -16,11 +16,11 @@ uint16 Lengh(string str) //Get string lenght
 	return --i;
 }
 
-uint16 *memsetw(uint16 *dest, uint16 val, uint32 count) //Mem set by 32bit word
+uint16 memsetw(uint16* dest, uint16 val, uint32 count) //Mem set by 32bit word
 {
-    uint16 *temp = (uint16 *)dest;
+    uint16 *temp = (uint16*)dest;
     for(; count != 0; count--) *temp++ = val;
-    return dest;
+    return *dest;
 }
 
 #endif

@@ -7,7 +7,7 @@ Contents: String Functionss
 #define _STRING_H
 
 //Include
-#include "./types.h"
+#include "./variables.h"
 
 uint16 Lengh(string str) //Get string lenght
 {

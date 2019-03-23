@@ -7,7 +7,7 @@ Contents: Time Functionss
 #define _TIME_H
 
 //Include
-#include "./types.h"
+#include "./variables.h"
 
 void Sleep(uint32 milli) //Sleep function
 {

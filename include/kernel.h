@@ -10,7 +10,7 @@ Contents: Kernel Header
 #define BUFSIZE 2200
 
 //Include
-#include "./types.h"
+#include "./variables.h"
 
 uint16* TERMINAL_BUFFER;
 

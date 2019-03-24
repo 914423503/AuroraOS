@@ -173,4 +173,12 @@ void clear() //Clear screen
 	print("", 15, 0);
 }
 
+void printch(char ch) //Print a char
+{
+    TERMINAL_BUFFER[VGA_INDEX] = VGA_DefaultEntry(ch, 15);
+    cursorX++;
+
+    updateCursor();
+}
+
 #endif

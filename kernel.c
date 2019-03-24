@@ -5,7 +5,7 @@ Contents: Kernel Main
 */
 #include "./include/kernel.h"
 #include "./include/color.h"
-#include "./include/time.h"
+#include "./include/acpi.h"
 #include "./include/Driver/interrups.h"
 
 void kmain()
@@ -16,13 +16,17 @@ void kmain()
 
 	//System Initialization
 
-    print("Enabling Interrups", 15, 1);
-    init();
-
 	print("OK!", 15, 1);
-    Sleep(9999999);
 
-    print(": ", 15, 1);
+    string cmd;
+    while(1)
+    {
+        print(": ", 15, 1);
+        cmd = read();
+
+        print("Yout typed: ", 15, 0);
+        print(cmd, 15, 1);
+    }
 
     //Code Here
 }

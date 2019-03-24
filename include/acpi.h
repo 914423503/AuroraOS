@@ -12,7 +12,7 @@ Contents: ACPI
 
 void reboot() //Reboot system
 {
-    	uint8 good = 0x02;
+    uint8 good = 0x02;
 	while (good & 0x02)
 	{
 		good = inportb(0x64);

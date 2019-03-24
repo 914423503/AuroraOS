@@ -5,8 +5,8 @@ Contents: Kernel Main
 */
 #include "./include/kernel.h"
 #include "./include/color.h"
-#include "./include/acpi.h"
 #include "./include/time.h"
+#include "./include/Driver/interrups.h"
 
 void kmain()
 {
@@ -16,10 +16,13 @@ void kmain()
 
 	//System Initialization
 
-	print("OK!", 15, 1);
+    print("Enabling Interrups", 15, 1);
+    init();
 
-    print("Lenght of 'Hello': ", 15, 1);
-    print(intConvStr((string)' ', Lenght("Hello")), 15, 0);
+	print("OK!", 15, 1);
+    Sleep(9999999);
+
+    print(": ", 15, 1);
 
     //Code Here
 }

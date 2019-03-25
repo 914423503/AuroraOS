@@ -18,7 +18,8 @@ void kmain()
 
 	print("OK!", 15, 1);
 
-    string cmd;
+    string cmd = "";
+    uint8 i =0;
     while(1)
     {
         print(": ", 15, 1);
@@ -26,6 +27,11 @@ void kmain()
 
         print("Yout typed: ", 15, 0);
         print(cmd, 15, 1);
+
+        while(cmd[i]) //Clear string
+        { cmd[i] = ' '; i++; }
+
+        i = 0;
     }
 
     //Code Here

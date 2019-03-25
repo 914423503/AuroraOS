@@ -13,6 +13,8 @@ If you do not have the necessary prerequisites you can install them by running t
 ```bash
 sh Install.sh
 ```
+It only works on a debian distribution, if you don't have it you will have to install the packages manually.
+
 ## Build
 To start the build of Aurora just start from the terminal the file "build.sh" with the following command:
 ```bash

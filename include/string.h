@@ -38,12 +38,29 @@ string intConvStr(string b, uint16 i) //From a int get char
     return b;
 }
 
-void clearStr(string str)
+void clearStr(string str) //Clear a string
 {
     uint8 i = 0;
 
     while(str[i])
       { str[i] = ' '; i++; }
+}
+
+uint8 strcmp(string str1, string str2) //Compare strings
+{
+    while ((*str1 == *str2) && (*str1 != '\0'))
+    {
+        str1++;
+        str2++;
+    }
+ 
+    if (*str1 > *str2)
+        return 1;
+ 
+    if (*str1 < *str2)
+        return -1;
+ 
+    return 0;
 }
 
 uint16 memsetw(uint16* dest, uint16 val, uint32 count) //Mem set by 32bit word

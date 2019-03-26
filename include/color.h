@@ -108,12 +108,19 @@ void clearVGABuffer(uint16 **buffer)
 
 void updateCursor() //Update cursor position
 {
-    	uint16 pos = cursorY * width + cursorX;                                                      
+        if(cursorY > height)
+        {
+            //New screen
+        }
+        else
+        {
+    	    uint16 pos = cursorY * width + cursorX;                                                      
 
-    	outportb(0x3D4, 0x0F);                                                                
-    	outportb(0x3D5, (uint8) (pos & 0xFF));                                                         
-    	outportb(0x3D4, 0x0E);                                                                
-    	outportb(0x3D5, (uint8) ((pos >> 8) & 0xFF));
+    	    outportb(0x3D4, 0x0F);                                                                
+    	    outportb(0x3D5, (uint8) (pos & 0xFF));                                                         
+    	    outportb(0x3D4, 0x0E);                                                                
+    	    outportb(0x3D5, (uint8) ((pos >> 8) & 0xFF));
+        }
 }
 
 void clearLine(uint8 from, uint8 to) //Clear a line from an address

@@ -24,8 +24,18 @@ void kmain()
         print(": ", 15, 1);
         cmd = read();
 
-        print("You typed: ", 15, 0);
-        print(cmd, 15, 1);
+        if(strcmp(cmd, "reboot") == 1)
+        {
+            reboot();
+        }
+        else if(strcmp(cmd, "cls") == 1)
+        {
+            clear();
+        } 
+        else
+        {
+            print("Unrecognized command", 1, 1);
+        }
 
         clearStr(cmd);
     }

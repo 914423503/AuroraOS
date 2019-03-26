@@ -19,19 +19,15 @@ void kmain()
 	print("OK!", 15, 1);
 
     string cmd = "";
-    uint8 i =0;
     while(1)
     {
         print(": ", 15, 1);
         cmd = read();
 
-        print("Yout typed: ", 15, 0);
+        print("You typed: ", 15, 0);
         print(cmd, 15, 1);
 
-        while(cmd[i]) //Clear string
-        { cmd[i] = ' '; i++; }
-
-        i = 0;
+        clearStr(cmd);
     }
 
     //Code Here

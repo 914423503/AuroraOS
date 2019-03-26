@@ -38,6 +38,14 @@ string intConvStr(string b, uint16 i) //From a int get char
     return b;
 }
 
+void clearStr(string str)
+{
+    uint8 i = 0;
+
+    while(str[i])
+      { str[i] = ' '; i++; }
+}
+
 uint16 memsetw(uint16* dest, uint16 val, uint32 count) //Mem set by 32bit word
 {
     uint16 *temp = (uint16*)dest;

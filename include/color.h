@@ -177,7 +177,7 @@ void clear() //Clear screen
 	cursorY = 0;
 	updateCursor();
 
-	print("", 15, 0);
+	//print("", 15, 0);
 }
 
 void printch(char ch) //Print a char

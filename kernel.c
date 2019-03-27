@@ -18,20 +18,27 @@ void kmain()
 
 	print("OK!", 15, 1);
 
-    string cmd = "";
+    string cmd;
     while(1)
     {
         print(": ", 15, 1);
         cmd = read();
 
-        if(strcmp(cmd, "reboot") == 1)
+        if(strcmp(cmd, "reboot") == 0)
         {
             reboot();
         }
-        else if(strcmp(cmd, "cls") == 1)
+        else if(strcmp(cmd, "cls") == 0)
         {
             clear();
-        } 
+        }
+        else if(strcmp(cmd, "help") == 0)
+        {
+            print("Command       |       What It Does", 15, 1);
+            print("reboot        |       Reboot the system", 15, 1);
+            print("cls           |       Clear the screen", 15, 1);
+            print("help          |       Display this page", 15, 1);
+        }
         else
         {
             print("Unrecognized command", 1, 1);

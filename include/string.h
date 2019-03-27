@@ -8,6 +8,7 @@ Contents: String Functionss
 
 //Include
 #include "./variables.h"
+#include "./color.h"
 
 uint16 Lenght(string str) //Get string lenght
 {
@@ -46,20 +47,18 @@ void clearStr(string str) //Clear a string
       { str[i] = ' '; i++; }
 }
 
-uint8 strcmp(string str1, string str2) //Compare strings
+uint8 strcmp(string a, string b)
 {
-    while ((*str1 == *str2) && (*str1 != '\0'))
-    {
-        str1++;
-        str2++;
-    }
- 
-    if (*str1 > *str2)
-        return 1;
- 
-    if (*str1 < *str2)
-        return -1;
- 
+        uint32 i = 0;
+
+        while(a[i] && b[i])
+        {
+            if(a[i] != b[i])
+            { return 1; }
+
+            i++;
+        }
+
     return 0;
 }
 

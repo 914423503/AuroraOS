@@ -24,18 +24,22 @@ void kmain()
         print(": ", 15, 1);
         cmd = read();
 
-        if(strcmp(cmd, "reboot") == 0)
+        if(strcmp(cmd, "BugssPrevention") == 0)
         {
-            reboot();
+            //BugssPrevention
         }
         else if(strcmp(cmd, "cls") == 0)
         {
             clear();
         }
+        else if(strcmp(cmd, "reboot") == 0)
+        {
+            reboot();
+        }
         else if(strcmp(cmd, "help") == 0)
         {
             print("Command       |       What It Does", 15, 1);
-            print("reboot        |       Reboot the system", 15, 1);
+            print("system -reb   |       Reboot the system", 15, 1);
             print("cls           |       Clear the screen", 15, 1);
             print("help          |       Display this page", 15, 1);
         }

@@ -39,7 +39,7 @@ void kmain()
         else if(strcmp(cmd, "help") == 0)
         {
             print("Command       |       What It Does", 15, 1);
-            print("system -reb   |       Reboot the system", 15, 1);
+            print("reboot        |       Reboot the system", 15, 1);
             print("cls           |       Clear the screen", 15, 1);
             print("help          |       Display this page", 15, 1);
         }

@@ -185,6 +185,8 @@ void printch(char ch) //Print a char
     TERMINAL_BUFFER[VGA_INDEX] = VGA_DefaultEntry(ch, 15);
     cursorX++;
 
+    VGA_INDEX++;
+
     updateCursor();
 }
 

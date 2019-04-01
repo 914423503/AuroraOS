@@ -175,9 +175,12 @@ void clear() //Clear screen
 	memsetw((uint16*)VGA_ADDRESS, PAINT(0x20, WHITE_COLOR), width * height / 2);
 	cursorX = 0;
 	cursorY = 0;
+
 	updateCursor();
 
 	//print("", 15, 0);
+    Y_INDEX = 1;
+    VGA_INDEX = 0;
 }
 
 void printch(char ch) //Print a char

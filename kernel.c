@@ -24,11 +24,11 @@ void kmain()
         print(": ", 15, 1);
         cmd = read();
 
-        if(strcmp(cmd, "BugssPrevention") == 0)
+        if(strcmp(cmd, "  ") == 0)
         {
             //BugssPrevention
         }
-        else if(strcmp(cmd, "cls") == 0)
+        if(strcmp(cmd, "cls") == 0)
         {
             clear();
         }

@@ -91,11 +91,15 @@ string read()
                 buffstr[i] = '=';
                 i++;
                 break;
-       /* case 15:
-                printch('\t');          Tab button
-                buffstr[i] = '\t';
-                i++;
-                break;*/
+        case 15: //BackSpace
+                if(i != 0) //If thi isn't the first char
+                { 
+                    buffstr[i] = ' ';
+                    i--;
+                    cursorX--;
+                }
+ 
+                break;
         case 16:
                 printch('q');
                 buffstr[i] = 'q';

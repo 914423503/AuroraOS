@@ -152,12 +152,12 @@ void print(string str, uint8 color, uint8 newLine) //Print a string
 	{ } else if (newLine == 1)
 	{
 		//Write a new line
-		if(Y_INDEX >= 55)
+		if(cursorY + 1 >= 55)
 		{
     			Y_INDEX = 0;
     			clearVGABuffer(&TERMINAL_BUFFER);
   		}
-  		VGA_INDEX = width*Y_INDEX;
+  		VGA_INDEX = width * Y_INDEX;
   		Y_INDEX++;
 
 		cursorY++;

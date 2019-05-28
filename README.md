@@ -1,5 +1,5 @@
 # AuroraOS
-AuroraOS is an Open-Source Operating System developer by 3 friends whith a common goal: develop a free, open source operating system (not just a kernel) that uses few resources and is the most fool proof possibile. Issues and Pull Request are very accepted. 
+AuroraOS is an Open-Source Operating System developed by 3 friends whith a common goal: develop a free, open source operating system (not just a kernel) that uses few resources and is the most fool proof possibile. Issues and Pull Request are very accepted. 
 ## Prerequisites
 The prerequisites for compiling Aurora are:
   - Linux OS

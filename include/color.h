@@ -96,6 +96,25 @@ static uint16 VGA_DefaultEntry(unsigned char to_print, uint8 showedColor) //Scre
      }
 }
 
+void clear() //Clear screen
+{
+	memsetw((uint16*)VGA_ADDRESS, PAINT(0x20, WHITE_COLOR), width * height / 2);
+	cursorX = 0;
+	cursorY = 0;
+
+    //Duplicate of updateCursor function (gcc Warnings bypass)
+    uint16 pos = cursorY * width + cursorX;                                                      
+
+    outportb(0x3D4, 0x0F);                                                                
+    outportb(0x3D5, (uint8) (pos & 0xFF));                                                         
+    outportb(0x3D4, 0x0E);                                                                
+    outportb(0x3D5, (uint8) ((pos >> 8) & 0xFF));
+
+	//print("", 15, 0);
+    Y_INDEX = 1;
+    VGA_INDEX = 0;
+}
+
 void clearVGABuffer(uint16 **buffer)
 {
   	for(int i=0;i<BUFSIZE;i++)
@@ -108,9 +127,10 @@ void clearVGABuffer(uint16 **buffer)
 
 void updateCursor() //Update cursor position
 {
-        if(cursorY > height)
+        if(cursorY >= height)
         {
             //New screen
+			clear();
         }
         else
         {
@@ -168,19 +188,6 @@ void print(string str, uint8 color, uint8 newLine) //Print a string
 	}
 
 	updateCursor();
-}
-
-void clear() //Clear screen
-{
-	memsetw((uint16*)VGA_ADDRESS, PAINT(0x20, WHITE_COLOR), width * height / 2);
-	cursorX = 0;
-	cursorY = 0;
-
-	updateCursor();
-
-	//print("", 15, 0);
-    Y_INDEX = 1;
-    VGA_INDEX = 0;
 }
 
 void printch(char ch) //Print a char

@@ -47,7 +47,7 @@ void clearStr(string str) //Clear a string
       { str[i] = ' '; i++; }
 }
 
-uint8 strcmp(string a, string b)
+uint8 strcmp(string a, string b) //String compare
 {
         uint32 i = 0;
 

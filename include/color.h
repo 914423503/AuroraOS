@@ -186,7 +186,7 @@ void print(string str, uint8 color, uint8 newLine) //Print a string
 	{
 		print("Error: newLine abiguos", 4, 0);
 	}
-
+	
 	updateCursor();
 }
 

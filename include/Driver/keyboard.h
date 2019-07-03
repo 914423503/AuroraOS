@@ -91,14 +91,20 @@ string read()
                 buffstr[i] = '=';
                 i++;
                 break;
-        case 15: //BackSpace
-                if(i != 0) //If thi isn't the first char
-                { 
-                    buffstr[i] = ' ';
-                    i--;
-                    cursorX--;
-                }
- 
+		case 14: //BackSpace
+				if(i != 0)
+				{
+					buffstr[i] = ' ';
+
+					cursorX--;
+					i--;
+				}
+				
+				break;
+        case 15: //Tab		
+				printch(' ');
+                buffstr[i] = ' ';
+                i++;
                 break;
         case 16:
                 printch('q');

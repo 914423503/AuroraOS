@@ -7,13 +7,16 @@ Contents: Kernel Main
 #include "./include/color.h"
 #include "./include/acpi.h"
 #include "./include/Driver/pci.h"
+#include "./include/Driver/keyboard.h"
 
 void kmain()
 {
 	TERMINAL_BUFFER = (uint16*) VGA_ADDRESS;
 
 	print("AuroraOS is starting...", 2, 1);
-
+	
+	//Start PCI scanning
+	
 	//System Initialization
 
 	print("OK!", 15, 1);
@@ -45,7 +48,7 @@ void kmain()
 		else if(strcmp(cmd, "about") == 0)
 		{
 			print("AuroraOS v.0.2 alpha", 15, 1);
-			print("AuroraKernel v.0.1.2", 15, 1);
+			print("AuroraKernel v.0.1.3 alpha", 15, 1);
 			print("Copyright (c) 2018-2019 - Developed by Leonardo Baldazzi", 15, 1);
 			print("", 15, 1);
 			print("In case of bugs please reply on GitHub page", 15, 1);

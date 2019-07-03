@@ -167,16 +167,13 @@ void print(string str, uint8 color, uint8 newLine) //Print a string
 		cursorX++;
   	}
   	VGA_INDEX = 0;
+	
+	updateCursor();
 
 	if (newLine == 0)
 	{ } else if (newLine == 1)
 	{
 		//Write a new line
-		if(cursorY + 1 >= 55)
-		{
-    			Y_INDEX = 0;
-    			clearVGABuffer(&TERMINAL_BUFFER);
-  		}
   		VGA_INDEX = width * Y_INDEX;
   		Y_INDEX++;
 
@@ -186,8 +183,8 @@ void print(string str, uint8 color, uint8 newLine) //Print a string
 	{
 		print("Error: newLine abiguos", 4, 0);
 	}
-	
-	updateCursor();
+
+    updateCursor();
 }
 
 void printch(char ch) //Print a char

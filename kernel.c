@@ -6,7 +6,7 @@ Contents: Kernel Main
 #include "./include/kernel.h"
 #include "./include/color.h"
 #include "./include/acpi.h"
-#include "./include/Driver/interrups.h"
+#include "./include/Driver/pci.h"
 
 void kmain()
 {

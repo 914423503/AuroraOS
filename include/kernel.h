@@ -1,7 +1,7 @@
 /*
 AuroraKernel SourceCode
 Programmer: LeonardoBaldazzi
-Contents: PCI Header
+Contents: KERNEL Header
 */
 #ifndef _KERNEL_H_
 #define _KERNEL_H_

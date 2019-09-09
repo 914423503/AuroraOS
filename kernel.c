@@ -44,6 +44,7 @@ void kmain()
             print("cls           |       Clear the screen (Not Working)", 15, 1);
             print("help          |       Display this page", 15, 1);
 			print("about         |       Get system information", 15, 1);
+			print("echo <str>    |       Print a string", 15, 1);
         }
 		else if(strcmp(cmd, "about") == 0)
 		{
@@ -52,6 +53,10 @@ void kmain()
 			print("Copyright (c) 2018-2019 - Developed by Leonardo Baldazzi", 15, 1);
 			print("", 15, 1);
 			print("In case of bugs please reply on GitHub page", 15, 1);
+		}
+		else if(startsWidth(cmd, "echo ") == 1)
+		{
+			print(cutFromLeft(cmd, 5), 15, 1);
 		}
         else
         {

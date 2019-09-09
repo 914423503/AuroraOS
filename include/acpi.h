@@ -9,6 +9,7 @@ Contents: ACPI
 
 //Include
 #include "./kernel.h"
+#include "./color.h"
 
 void reboot() //Reboot system
 {
@@ -24,6 +25,17 @@ void reboot() //Reboot system
 
 void shutdown() //Shutdowh system
 {
+}
+
+void crash(string message, string errCode) //Crash
+{
+	clear();
+	
+	print("An error occured while system running.", 4, 1);
+	print("AuroraKernel had returned this error message: ", 4, 1);
+	print(message, 4, 1);
+	print("Err code: ", 15, 1);
+	print(errCode, 15, 1);
 }
 
 #endif

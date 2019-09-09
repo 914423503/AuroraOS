@@ -62,6 +62,45 @@ uint8 strcmp(string a, string b) //String compare
     return 0;
 }
 
+uint8 startsWidth(string a, string b) //If string a starts width string b return 1
+{
+	uint32 lenghtB = Lenght(b);
+	uint32 i = 0;
+	uint32 i_ = 0;
+	
+	while(i < lenghtB)
+	{
+		if(a[i] == b[i])
+		{
+			i_++;
+		}
+		
+		i++;
+	}
+	
+	if(i_ == i)
+	{
+		return 1;
+	}
+	
+	return 0;
+}
+
+string cutFromLeft(string a, uint32 b) //Cut a string from left (spaces)
+{
+	string lav = a;
+	uint32 i = 0;
+	
+	while(i < b)
+	{
+		lav[i] = ' ';
+		
+		i++;
+	}
+	
+	return lav;
+}	
+
 uint16 memsetw(uint16* dest, uint16 val, uint32 count) //Mem set by 32bit word
 {
     uint16 *temp = (uint16*)dest;

@@ -15,12 +15,15 @@ Contents: Keyboard driver
 #include "../kernel.h"
 #include "../string.h"
 #include "../color.h"
+#include "../acpi.h"
+#include "../time.h"
 
 string read()
 {
     string buffstr = "";
     uint8 i = 0;
     uint8 reading = 1;
+
 
     while(reading)
     {
@@ -319,11 +322,10 @@ string read()
             }
         }
     }
+		print("", 15, 1);
 
-    print("", 15, 1);
-
-    cursorX = 0;
-    cursorY = cursorY - 1;
+		cursorX = 0;
+		cursorY = cursorY - 1;
      
     return buffstr;
 }

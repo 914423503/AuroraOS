@@ -42,7 +42,6 @@ string intConvStr(string b, uint16 i) //From a int get char
 void clearStr(string str) //Clear a string
 {
     uint8 i = 0;
-
     while(str[i])
       { str[i] = ' '; i++; }
 }
@@ -62,7 +61,7 @@ uint8 strcmp(string a, string b) //String compare
     return 0;
 }
 
-uint8 startsWidth(string a, string b) //If string a starts width string b return 1
+uint8 startsWidth(string a, string b) //If string a starts with string b return 1
 {
 	uint32 lenghtB = Lenght(b);
 	uint32 i = 0;
@@ -86,7 +85,7 @@ uint8 startsWidth(string a, string b) //If string a starts width string b return
 	return 0;
 }
 
-string cutFromLeft(string a, uint32 b) //Cut a string from left (spaces)
+string cutFromLeft(string a, uint32 b) //Cut a string from left (spaces )
 {
 	string lav = a;
 	uint32 i = 0;

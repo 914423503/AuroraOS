@@ -100,6 +100,12 @@ string read()
 					buffstr[i] = ' ';
 
 					cursorX--;
+					
+					updateCursor();
+					printch(' ');
+					
+					cursorX--;
+					
 					i--;
 				}
 				

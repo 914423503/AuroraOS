@@ -98,7 +98,7 @@ static uint16 VGA_DefaultEntry(unsigned char to_print, uint8 showedColor) //Scre
 
 void clear() //Clear screen
 {
-	memsetw((uint16*)VGA_ADDRESS, PAINT(0x20, WHITE_COLOR), width * height / 2);
+	memsetw((uint16*)VGA_ADDRESS, PAINT(0x20, WHITE_COLOR), width * height);
 	cursorX = 0;
 	cursorY = 0;
 

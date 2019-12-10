@@ -18,6 +18,7 @@ void kmain()
 	//Start PCI scanning
 	
 	//System Initialization
+	print(intConvStr(100000000, getAmmountOfRam()), 15, 1);
 
 	print("OK!", 15, 1);
 
@@ -41,6 +42,7 @@ void kmain()
         {
             print("Command       |       What It Does", 15, 1);
             print("reboot        |       Reboot the system", 15, 1);
+            print("shutdown      |       Shutdown the system", 15, 1);
             print("cls           |       Clear the screen", 15, 1);
             print("help          |       Display this page", 15, 1);
 			print("about         |       Get system information", 15, 1);
@@ -48,8 +50,8 @@ void kmain()
         }
 		else if(strcmp(cmd, "about") == 0)
 		{
-			print("AuroraOS v.0.2 alpha", 15, 1);
-			print("AuroraKernel v.0.1.3.1 alpha", 15, 1);
+			print("AuroraOS v.0.2.7", 15, 1);
+			print("AuroraKernel v.0.2 beta", 15, 1);
 			print("Copyright (c) 2018-2019 - Developed by Leonardo Baldazzi", 15, 1);
 			print("", 15, 1);
 			print("In case of bugs please reply on GitHub page", 15, 1);
@@ -57,6 +59,10 @@ void kmain()
 		else if(startsWidth(cmd, "echo ") == 1)
 		{
 			print(cutFromLeft(cmd, 5), 15, 1);
+		}
+		else if (strcmp(cmd, "shutdown") == 0)
+		{
+			shutdown();
 		}
         else
         {

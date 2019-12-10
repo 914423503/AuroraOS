@@ -32,8 +32,8 @@ string read()
             updateCursor();
             switch(inportb(0x60))
             { 
-        case 1:
-                //Shutdown
+		case 1:
+				//Shutdown
         case 2:
                 printch('1');
                 buffstr[i] = '1';

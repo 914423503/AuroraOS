@@ -26,4 +26,18 @@ void outportb (uint16 _port, uint8 _data)
 	__asm__ __volatile__ ("outb %1, %0" : : "dN" (_port), "a" (_data));
 }
 
+unsigned short getAmmountOfRam()
+{
+	unsigned short total;
+	unsigned char lowmem, highmem;
+
+	outportb(0x70, 0x30);
+	lowmem = inportb(0x71);
+	outportb(0x70, 0x31);
+	highmem = inportb(0x71);
+
+	total = lowmem | highmem << 8;
+	return total;
+}
+
 #endif

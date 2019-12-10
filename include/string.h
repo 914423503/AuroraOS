@@ -19,7 +19,7 @@ uint16 Lenght(string str) //Get string lenght
     return i;
 }
 
-string intConvStr(string b, uint16 i) //From a int get char
+string intConvStr(string b, uint32 i) //From a int get char
 {
     char const digit[] = "0123456789";
     string p = b;
@@ -36,7 +36,7 @@ string intConvStr(string b, uint16 i) //From a int get char
         i = i/10;
     }while(i);
 
-    return b;
+    return p;
 }
 
 void clearStr(string str) //Clear a string

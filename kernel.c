@@ -18,9 +18,10 @@ void kmain()
 	//Start PCI scanning
 	
 	//System Initialization
-	print(intConvStr(100000000, getAmmountOfRam()), 15, 1);
+	print("RAM: ", 15, 1);
+	print(intConvStr((char*)100000000, getAmmountOfRam()), 15, 1);
 
-	print("OK!", 15, 1);
+	print("OK!", 14, 1);
 
     string cmd;
     while(1)

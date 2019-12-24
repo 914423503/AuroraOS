@@ -33,7 +33,8 @@ string read()
             switch(inportb(0x60))
             { 
 		case 1:
-				//Shutdown
+				shutdown();
+				break;
         case 2:
                 printch('1');
                 buffstr[i] = '1';

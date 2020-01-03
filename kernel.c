@@ -24,7 +24,7 @@ void kmain()
 	print("OK!", 14, 1);
 
     string cmd;
-    while(1)
+    while(true)
     {
         print(": ", 15, 1);
         cmd = read();

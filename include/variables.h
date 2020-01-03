@@ -6,6 +6,9 @@ Contents: Var Types
 #ifndef TYPES_H
 #define TYPES_H
 
+//Include
+#include "./stdbool.h" //Boolean variables
+
 typedef signed char int8;
 typedef unsigned char uint8;
 

@@ -53,7 +53,7 @@ void kmain()
 		{
 			print("AuroraOS v.0.2.7", 15, 1);
 			print("AuroraKernel v.0.2.5 beta", 15, 1);
-			print("Copyright (c) 2018-2019 - Developed by Leonardo Baldazzi", 15, 1);
+			print("Copyright (c) 2018-2020 - Developed by Leonardo Baldazzi", 15, 1);
 			print("", 15, 1);
 			print("In case of bugs please reply on GitHub page", 15, 1);
 		}

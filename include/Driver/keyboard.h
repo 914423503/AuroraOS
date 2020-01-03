@@ -328,6 +328,18 @@ string read()
                 buffstr[i] = ' ';
                 i++;
                 break;
+        case 79: //Left
+                cursorX--;
+
+                updateCursor();
+
+                break;
+        case 89: //Right
+                cursorX++;
+
+                updateCursor();
+
+                break;
             }
         }
     }

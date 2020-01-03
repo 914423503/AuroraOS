@@ -37,7 +37,7 @@ Contents: Basic GPU Driver
 unsigned int VGA_INDEX;
 
 static uint8 Y_INDEX = 1;
-int cursorX = 0, cursorY = 0;
+unsigned int cursorX = 0, cursorY = 0;
 const uint8 width = 80, height = 25, depth = 2; //Screen Resolution and depth
 
 static uint16 VGA_DefaultEntry(unsigned char to_print, uint8 showedColor) //Screen color

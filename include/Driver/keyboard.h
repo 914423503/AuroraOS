@@ -96,16 +96,18 @@ string read()
                 i++;
                 break;
 		case 14: //BackSpace
-				if(i != 0)
+				if(i > 0)
 				{
-					buffstr[i] = ' ';
+					//buffstr[i] = ' ';
 
 					cursorX--;
 					
 					updateCursor();
 					printch(' ');
-					
+
 					cursorX--;
+
+                    updateCursor();
 					
 					i--;
 				}

@@ -19,7 +19,7 @@ void kmain()
 	
 	//System Initialization
 	print("RAM: ", 15, 1);
-	print(intConvStr((char*)100000000, getAmmountOfRam()), 15, 1);
+	//print(intConvStr((char*)100000000, getAmmountOfRam()), 15, 1);
 
 	print("OK!", 14, 1);
 

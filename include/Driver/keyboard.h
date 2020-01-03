@@ -331,10 +331,9 @@ string read()
             }
         }
     }
-		print("", 15, 1);
 
-		cursorX = 0;
-		cursorY = cursorY - 1;
+	cursorX = 0;
+	cursorY = cursorY - 1;
      
     return buffstr;
 }

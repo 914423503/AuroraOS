@@ -153,41 +153,42 @@ void clearLine(uint8 from, uint8 to) //Clear a line from an address
         }
 }
 
-void print(string str, uint8 color, uint8 newLine) //Print a string
+void print(const string str, uint8 color, uint8 newLine) //Print a string
 {
   	int i = 0;
 
   	while(str[i])
   	{
-    		//Write bytes
-    		TERMINAL_BUFFER[VGA_INDEX] = VGA_DefaultEntry(str[i], color);
-    		i++;
-    		VGA_INDEX++;
+        //Write bytes
+        TERMINAL_BUFFER[VGA_INDEX] = VGA_DefaultEntry((char)str[i], color);
+        i++;
+        VGA_INDEX++;
 
 		cursorX++;
   	}
+
   	VGA_INDEX = 0;
-	
-	updateCursor();
 
-	if (newLine == 0)
-	{ } else if (newLine == 1)
+	if (newLine != 0)
 	{
-		//Write a new line
-  		VGA_INDEX = width * Y_INDEX;
-  		Y_INDEX++;
+        if (newLine == 1)
+        {
+            //Write a new line
+            VGA_INDEX = width * Y_INDEX;
+            Y_INDEX++;
 
-		cursorY++;
-		cursorX = 0;
-	} else
-	{
-		print("Error: newLine abiguos", 4, 0);
-	}
+            cursorY++;
+            cursorX = 0;
+        } else
+        {
+            print("Error: newLine abiguos", 4, 0);
+        }
+    }
 
     updateCursor();
 }
 
-void printch(char ch) //Print a char
+void printch(const char ch) //Print a char
 {
     TERMINAL_BUFFER[VGA_INDEX] = VGA_DefaultEntry(ch, 15);
     cursorX++;

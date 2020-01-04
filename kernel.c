@@ -24,12 +24,14 @@ void kmain()
 	print("OK!", 14, 1);
 
     string cmd;
-    while(true)
+    bool reading = true;
+
+    while(reading)
     {
         print(": ", 15, 1);
         cmd = read();
 		
-		print("                                                        ", 15, 1);
+		print("                                                           ", 15, 1);
 		
         if(strcmp(cmd, "cls") == 0)
         {
@@ -48,13 +50,14 @@ void kmain()
             print("help          |       Display this page", 15, 1);
 			print("about         |       Get system information", 15, 1);
 			print("echo <str>    |       Print a string", 15, 1);
+			print("set -<instruments> <args>        |       Set a system variable manually", 15, 1);
         }
 		else if(strcmp(cmd, "about") == 0)
 		{
 			print("AuroraOS v.0.2.7", 15, 1);
 			print("AuroraKernel v.0.2.5 beta", 15, 1);
 			print("Copyright (c) 2018-2020 - Developed by Leonardo Baldazzi", 15, 1);
-			print("", 15, 1);
+			print("                                                        ", 15, 1);
 			print("In case of bugs please reply on GitHub page", 15, 1);
 		}
 		else if(startsWidth(cmd, "echo ") == 1)
@@ -65,6 +68,31 @@ void kmain()
 		{
 			shutdown();
 		}
+        else if (strcmp(cmd, "set -h") == 0)
+        {
+                print("Usage: set -<instruments> <args>", 15, 1);
+                print("Instruments list:", 15, 1);
+                print("            stpread: Stop reading keyboard cycle (not safe)", 15, 1);
+                print("                                                        ", 15, 1);
+                print("Args list:", 15, 1);
+                print("            true: Set a variable content to true (use this for stpread)", 15, 1);
+                print("            false: Set a variable content to false (use this for stpread)", 15, 1);
+        }
+        else if(startsWidth(cmd, "set -stpread ") == 1)
+        {
+            string args = cutFromLeft(cmd, 13);
+            if(strcmp(args, "             true") == 0)
+            {
+                reading = true;
+            } else if(strcmp(args, "             false") == 0)
+            {
+                print("Now you can't use your computer, stopping 'reading' cycle", 15, 1);
+                reading = false;
+            } else
+            {
+                print("Error: Unrecognised parameter passed to stpread, aborting", 4, 1);
+            }
+        }
         else
         {
             print("Unrecognized command", 1, 1);

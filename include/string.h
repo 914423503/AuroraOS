@@ -9,6 +9,12 @@ Contents: String Functionss
 //Include
 #include "./variables.h"
 #include "./color.h"
+#include "./math.h"
+
+//Implicit declaration of function warning:
+void print(const string str, uint8 color, uint8 newLine);
+
+#define INT_DECIMAL_STRING_SIZE(int_type) ((CHAR_BIT*sizeof(int_type)-1)*10/33+3)
 
 uint16 Lenght(string str) //Get string lenght
 {
@@ -20,25 +26,11 @@ uint16 Lenght(string str) //Get string lenght
 }
 
 /*
-string intConvStr(string b, uint32 i) //From a int get char
+string itoa(uint32 b) //From a int get string
 {
-    char const digit[] = "0123456789";
-    string p = b;
-
-    uint16 shifter = i;
-    do{
-        ++p;
-        shifter = shifter/10;
-    }while(shifter);
-
-    *p = '\0';
-    do{
-        *--p = digit[i%10];
-        i = i/10;
-    }while(i);
-
-    return p;
-} */
+    //Not working
+}
+ */
 
 void clearStr(string str) //Clear a string
 {
@@ -86,19 +78,32 @@ uint8 startsWidth(string a, string b) //If string a starts with string b return 
 	return 0;
 }
 
-string cutFromLeft(string a, uint32 b) //Cut a string from left (spaces )
+string cutFromLeft(string a, uint32 b) //Cut a string from left
 {
-	string lav = a;
-	uint32 i = 0;
-	
-	while(i < b)
-	{
-		lav[i] = ' ';
-		
-		i++;
-	}
-	
-	return lav;
+    string lav = a;
+    string ret = "";
+    uint32 pos = 0;
+
+    if(!(b > Lenght(a)))
+    {
+        for (uint32 i = 0; i < b; i++) { lav[i] = ' '; }
+
+        for (uint32 i = 0; i < Lenght(a); i++) {
+            if (i >= b) {
+                ret[pos] = lav[i];
+
+                pos++;
+            }
+        }
+
+        return ret;
+    }
+    else
+    {
+        print("Error in cutFromLeft method: cut pointer not valid", 4, 1);
+
+        return " Error! "; //Error return
+    }
 }	
 
 uint16 memsetw(uint16* dest, uint16 val, uint32 count) //Mem set by 32bit word

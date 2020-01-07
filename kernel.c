@@ -18,8 +18,8 @@ void kmain()
 	//Start PCI scanning
 	
 	//System Initialization
-	print("RAM: ", 15, 1);
-	//print(intConvStr((char*)100000000, getAmmountOfRam()), 15, 1);
+	print("RAM Amount: Not Working", 15, 1);
+	//print(itoa(getAmmountOfRam()), 15, 1);
 
 	print("OK!", 14, 1);
 
@@ -30,8 +30,8 @@ void kmain()
     {
         print(": ", 15, 1);
         cmd = read();
-		
-		print("                                                           ", 15, 1);
+
+        print("                                               ", 15, 1);
 		
         if(strcmp(cmd, "cls") == 0)
         {
@@ -55,7 +55,7 @@ void kmain()
 		else if(strcmp(cmd, "about") == 0)
 		{
 			print("AuroraOS v.0.3", 15, 1);
-			print("AuroraKernel v.0.2.5 beta", 15, 1);
+			print("AuroraKernel v.0.2.7 beta", 15, 1);
 			print("Copyright (c) 2018-2020 - Developed by Leonardo Baldazzi", 15, 1);
 			print("                                                        ", 15, 1);
 			print("In case of bugs please reply on GitHub page", 15, 1);
@@ -95,7 +95,7 @@ void kmain()
         }
         else
         {
-            print("Unrecognized command", 1, 1);
+            print("Unrecognized command", 4, 1);
         }
 
         clearStr(cmd);

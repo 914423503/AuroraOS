@@ -40,6 +40,8 @@ static uint8 Y_INDEX = 1;
 unsigned int cursorX = 0, cursorY = 0;
 const uint8 width = 80, height = 25, depth = 2; //Screen Resolution and depth
 
+void updateCursor();
+
 static uint16 VGA_DefaultEntry(unsigned char to_print, uint8 showedColor) //Screen color
 {
      if(showedColor == 0)
@@ -99,18 +101,11 @@ static uint16 VGA_DefaultEntry(unsigned char to_print, uint8 showedColor) //Scre
 void clear() //Clear screen
 {
 	memsetw((uint16*)VGA_ADDRESS, PAINT(0x20, WHITE_COLOR), width * height);
-	cursorX = 0;
+	cursorX = 1;
 	cursorY = 0;
 
-    //Duplicate of updateCursor function (gcc Warnings bypass)
-    uint16 pos = cursorY * width + cursorX;                                                      
+	updateCursor();
 
-    outportb(0x3D4, 0x0F);                                                                
-    outportb(0x3D5, (uint8) (pos & 0xFF));                                                         
-    outportb(0x3D4, 0x0E);                                                                
-    outportb(0x3D5, (uint8) ((pos >> 8) & 0xFF));
-
-	//print("", 15, 0);
     Y_INDEX = 1;
     VGA_INDEX = 0;
 }
@@ -167,7 +162,7 @@ void print(const string str, uint8 color, uint8 newLine) //Print a string
 		cursorX++;
   	}
 
-  	VGA_INDEX = 0;
+  	updateCursor();
 
 	if (newLine != 0)
 	{

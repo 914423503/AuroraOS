@@ -37,5 +37,5 @@ make clean
 
 ## System Prerequisites
 - CPU: 32/64bit 1 core processor
-- RAM: 1mb (Minimum) or 64mb (Recommended)
+- RAM: 18mb (Minimum) or 64mb (Recommended)
 

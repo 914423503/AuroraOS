@@ -25,16 +25,20 @@ void reboot() //Reboot system
 
 void shutdown() //Shutdowh system
 {
+    //Shutdown physical machine
 	__asm
 	(
-		"mov %ax, 0x1000;"
-		"mov %ax, %ss;"
-		"mov %sp, 0xf000;"
-		"mov %ax, 0x5307;"
-		"mov %bx, 0x0001;"
-		"mov %cx, 0x0003;"
-		"int $0x15;"
-		"ret;"
+    "mov $0x5301, %ax;"
+    "xor %bx, %bx;"
+    "int $0x15;"
+    "mov $0x530e, %ax;"
+    "xor %bx, %bx;"
+    "mov $0x0102, %cx;"
+    "int $0x15;"
+    "mov $0x5307, %ax;"
+    "mov $0x0001, %bx;"
+    "mov $0x0003, %cx;"
+    "int $0x15;"
 		);
 }
 
@@ -42,11 +46,12 @@ void crash(string message, string errCode) //Crash
 {
 	clear();
 	
-	print("An error occured while system running.", 4, 1);
-	print("AuroraKernel had returned this error message: ", 4, 1);
-	print(message, 4, 1);
-	print("Err code: ", 15, 1);
-	print(errCode, 15, 1);
+	print("An error occured while system running. /n", 4);
+	print("AuroraKernel had returned this error message: /n", 4);
+	print(message, 4);
+	print("/n", 15);
+	print("Err code: /n", 15);
+	print(errCode, 15);
 }
 
 #endif

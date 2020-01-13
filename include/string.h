@@ -12,7 +12,7 @@ Contents: String Functionss
 #include "./math.h"
 
 //Implicit declaration of function warning:
-void print(const string str, uint8 color, uint8 newLine);
+void print(const string str, uint8 color);
 
 #define INT_DECIMAL_STRING_SIZE(int_type) ((CHAR_BIT*sizeof(int_type)-1)*10/33+3)
 
@@ -26,17 +26,17 @@ uint16 Lenght(string str) //Get string lenght
 }
 
 /*
-string itoa(uint32 b) //From a int get string
+string itoa(int i, string b) //From a int get string
 {
-    //Not working
-}
- */
+    //NOT WORKING
+} */
+
 
 void clearStr(string str) //Clear a string
 {
     uint8 i = 0;
     while(str[i])
-      { str[i] = ' '; i++; }
+      { str[i] = 0; i++; }
 }
 
 uint8 strcmp(string a, string b) //String compare
@@ -100,7 +100,7 @@ string cutFromLeft(string a, uint32 b) //Cut a string from left
     }
     else
     {
-        print("Error in cutFromLeft method: cut pointer not valid", 4, 1);
+        print("Error in cutFromLeft method: cut pointer not valid /n", 4);
 
         return " Error! "; //Error return
     }

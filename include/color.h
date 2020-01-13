@@ -122,7 +122,7 @@ void clearVGABuffer(uint16 **buffer)
 
 void updateCursor() //Update cursor position
 {
-        if(cursorY >= height)
+        if(cursorY > height)
         {
             //New screen
 			clear();

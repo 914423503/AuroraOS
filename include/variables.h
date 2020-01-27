@@ -9,6 +9,9 @@ Contents: Var Types
 //Include
 #include "./stdbool.h" //Boolean variables
 
+//Defining null variable
+#define NULL ((char *)0)
+
 typedef signed char int8;
 typedef unsigned char uint8;
 

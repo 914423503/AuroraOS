@@ -39,43 +39,37 @@ void clearStr(string str) //Clear a string
       { str[i] = 0; i++; }
 }
 
-uint8 strcmp(string a, string b) //String compare
+uint8 strcmp(string a, string b) //String compare (from linux source code)
 {
-        uint32 i = 0;
+	unsigned char c1, c2;
 
-        while(a[i] && b[i])
-        {
-            if(a[i] != b[i])
-            { return 1; }
-
-            i++;
-        }
-
-    return 0;
+	while (1) {
+		c1 = *a++;
+		c2 = *b++;
+		if (c1 != c2)
+			return c1 < c2 ? -1 : 1;
+		if (!c1)
+			break;
+	}
+	return 0;
 }
 
 uint8 startsWidth(string a, string b) //If string a starts with string b return 1
 {
 	uint32 lenghtB = Lenght(b);
 	uint32 i = 0;
-	uint32 i_ = 0;
 	
 	while(i < lenghtB)
 	{
-		if(a[i] == b[i])
+		if(a[i] != b[i])
 		{
-			i_++;
+			return 0;
 		}
 		
 		i++;
 	}
 	
-	if(i_ == i)
-	{
-		return 1;
-	}
-	
-	return 0;
+	return 1;
 }
 
 string cutFromLeft(string a, uint32 b) //Cut a string from left
@@ -84,11 +78,9 @@ string cutFromLeft(string a, uint32 b) //Cut a string from left
     string ret = "";
     uint32 pos = 0;
 
-    if(!(b > Lenght(a)))
+    if(!(Lenght(a) - b <= 0))
     {
-        for (uint32 i = 0; i < b; i++) { lav[i] = ' '; }
-
-        for (uint32 i = 0; i < Lenght(a); i++) {
+        for (uint32 i = 1; i <= Lenght(a); i++) {
             if (i >= b) {
                 ret[pos] = lav[i];
 
@@ -101,8 +93,8 @@ string cutFromLeft(string a, uint32 b) //Cut a string from left
     else
     {
         print("Error in cutFromLeft method: cut pointer not valid /n", 4);
-
-        return " Error! "; //Error return
+		
+		return NULL;
     }
 }	
 

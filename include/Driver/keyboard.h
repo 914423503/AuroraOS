@@ -98,15 +98,14 @@ string read()
 		case 14: //BackSpace
 				if(i > 0)
 				{
-					//buffstr[i] = ' ';
-
+					buffstr[i] = 0;
+					
 					cursorX--;
 					
-					updateCursor();
-					printch(' ');
-
+					printch(0);
+					
 					cursorX--;
-
+					
                     updateCursor();
 					
 					i--;

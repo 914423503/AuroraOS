@@ -59,7 +59,7 @@ void kmain()
         }
 		else if(strcmp(cmd, "about") == 0)
 		{
-			print("AuroraOS v.0.3-rc1 beta 1 /n", 15);
+			print("AuroraOS v.0.3-rc1 /n", 15);
 			print("AuroraKernel v.0.2.7 beta /n", 15);
 			print("Copyright (c) 2018-2020 - Developed by Leonardo Baldazzi /n", 15);
 			print("                                                         /n", 15);

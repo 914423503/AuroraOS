@@ -15,12 +15,15 @@ Contents: Keyboard driver
 #include "../kernel.h"
 #include "../string.h"
 #include "../color.h"
+#include "../acpi.h"
+#include "../time.h"
 
 string read()
 {
     string buffstr = "";
     uint8 i = 0;
     uint8 reading = 1;
+
 
     while(reading)
     {
@@ -29,8 +32,9 @@ string read()
             updateCursor();
             switch(inportb(0x60))
             { 
-        case 1:
-                //Shutdown
+		case 1:
+				shutdown();
+				break;
         case 2:
                 printch('1');
                 buffstr[i] = '1';
@@ -91,14 +95,27 @@ string read()
                 buffstr[i] = '=';
                 i++;
                 break;
-        case 15: //BackSpace
-                if(i != 0) //If thi isn't the first char
-                { 
-                    buffstr[i] = ' ';
-                    i--;
-                    cursorX--;
-                }
- 
+		case 14: //BackSpace
+				if(i > 0)
+				{
+					buffstr[i] = 0;
+					
+					cursorX--;
+					
+					printch(0);
+					
+					cursorX--;
+					
+                    updateCursor();
+					
+					i--;
+				}
+				
+				break;
+        case 15: //Tab		
+				printch(' ');
+                buffstr[i] = ' ';
+                i++;
                 break;
         case 16:
                 printch('q');
@@ -310,14 +327,24 @@ string read()
                 buffstr[i] = ' ';
                 i++;
                 break;
+        case 79: //Left
+                cursorX--;
+
+                updateCursor();
+
+                break;
+        case 89: //Right
+                cursorX++;
+
+                updateCursor();
+
+                break;
             }
         }
     }
 
-    print("", 15, 1);
-
-    cursorX = 0;
-    cursorY = cursorY - 1;
+	cursorX = 0;
+	cursorY = cursorY - 1;
      
     return buffstr;
 }

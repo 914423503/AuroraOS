@@ -6,6 +6,12 @@ Contents: Var Types
 #ifndef TYPES_H
 #define TYPES_H
 
+//Include
+#include "./stdbool.h" //Boolean variables
+
+//Defining null variable
+#define NULL ((char *)0)
+
 typedef signed char int8;
 typedef unsigned char uint8;
 
@@ -19,5 +25,6 @@ typedef signed long long int64;
 typedef unsigned long long uint64;
 
 typedef char* string;
+
 
 #endif

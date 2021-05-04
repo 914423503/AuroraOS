@@ -37,8 +37,10 @@ Contents: Basic GPU Driver
 unsigned int VGA_INDEX;
 
 static uint8 Y_INDEX = 1;
-int cursorX = 0, cursorY = 0;
+unsigned int cursorX = 0, cursorY = 0;
 const uint8 width = 80, height = 25, depth = 2; //Screen Resolution and depth
+
+void updateCursor();
 
 static uint16 VGA_DefaultEntry(unsigned char to_print, uint8 showedColor) //Screen color
 {
@@ -96,6 +98,18 @@ static uint16 VGA_DefaultEntry(unsigned char to_print, uint8 showedColor) //Scre
      }
 }
 
+void clear() //Clear screen
+{
+	memsetw((uint16*)VGA_ADDRESS, PAINT(0x20, WHITE_COLOR), width * height);
+	cursorX = 1;
+	cursorY = 0;
+
+	updateCursor();
+
+    Y_INDEX = 1;
+    VGA_INDEX = 0;
+}
+
 void clearVGABuffer(uint16 **buffer)
 {
   	for(int i=0;i<BUFSIZE;i++)
@@ -111,6 +125,7 @@ void updateCursor() //Update cursor position
         if(cursorY > height)
         {
             //New screen
+			clear();
         }
         else
         {
@@ -133,57 +148,38 @@ void clearLine(uint8 from, uint8 to) //Clear a line from an address
         }
 }
 
-void print(string str, uint8 color, uint8 newLine) //Print a string
+void print(const string str, uint8 color) //Print a string
 {
   	int i = 0;
 
   	while(str[i])
   	{
-    		//Write bytes
-    		TERMINAL_BUFFER[VGA_INDEX] = VGA_DefaultEntry(str[i], color);
-    		i++;
-    		VGA_INDEX++;
+  	    //Check if it's a new line
+  	    if (str[i] == '/' && str[i + 1] == 'n')
+  	    {
+  	        //Write a new line
+  	        VGA_INDEX = width * Y_INDEX;
+  	        Y_INDEX++;
 
-		cursorX++;
+  	        i++; //Skip '/' and 'n' char
+
+  	        cursorY++;
+  	        cursorX = 0;
+  	    } else {
+  	        //Write bytes
+  	        TERMINAL_BUFFER[VGA_INDEX] = VGA_DefaultEntry((char)str[i], color);
+  	        VGA_INDEX++;
+
+  	        cursorX++;
+  	    }
+
+  	    i++; //Next char
   	}
-  	VGA_INDEX = 0;
 
-	if (newLine == 0)
-	{ } else if (newLine == 1)
-	{
-		//Write a new line
-		if(cursorY + 1 >= 55)
-		{
-    			Y_INDEX = 0;
-    			clearVGABuffer(&TERMINAL_BUFFER);
-  		}
-  		VGA_INDEX = width * Y_INDEX;
-  		Y_INDEX++;
-
-		cursorY++;
-		cursorX = 0;
-	} else
-	{
-		print("Error: newLine abiguos", 4, 0);
-	}
-
-	updateCursor();
+  	updateCursor();
 }
 
-void clear() //Clear screen
-{
-	memsetw((uint16*)VGA_ADDRESS, PAINT(0x20, WHITE_COLOR), width * height / 2);
-	cursorX = 0;
-	cursorY = 0;
-
-	updateCursor();
-
-	//print("", 15, 0);
-    Y_INDEX = 1;
-    VGA_INDEX = 0;
-}
-
-void printch(char ch) //Print a char
+void printch(const char ch) //Print a char
 {
     TERMINAL_BUFFER[VGA_INDEX] = VGA_DefaultEntry(ch, 15);
     cursorX++;
